@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>hello world</title>
+    <meta charset="utf-8" />
+    <script src='./api/assets/mapbox-gl.js'></script>
+    <link href='./api/assets/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+     <div id='map'></div>
+     <script src="jquery-3.6.4.min.js"></script>
+     <script>
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: {
+                 "version": 8,
+                 "name": "Mapbox Streets",
+                 "sprite": "http://localhost:8888/mapbox_build/sprite/sprite",
+                //  "glyphs": "http://localhost:8888/mapbox_build/fonts/{fontstack}/{range}.pbf",
+                 "sources": {
+                    "osm-tiles": {
+                        "type": "raster",
+                        'tiles': [
+                            "http://localhost:8888/tiles/{z}/{x}/{y}.png"
+                        ],
+                        
+                    }
+                  },
+                  "layers":[{
+                         "id": "123",
+                         "type": "raster",
+                         "source": "osm-tiles",
+                         "source-layer": "osmtiles"
+                  }]
+            },
+            center: [-71.6516848,48.5107057],
+            zoom: 15
+        });
+        let marker= new mapboxgl.Marker();
+        $('body').click(function(){            
+            marker.setLngLat([-71.6516848+0.003*Math.random(),48.5107057+0.003*Math.random()])
+                .addTo(map);
+        })
+
+     </script>
+</body>
+</html>
