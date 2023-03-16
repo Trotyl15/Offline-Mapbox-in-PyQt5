@@ -3,6 +3,6 @@ run
 
 `python server.py`
 
-than
+then
 
 `python map.py`
