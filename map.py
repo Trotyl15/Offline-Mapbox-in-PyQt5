@@ -54,7 +54,7 @@ if __name__ == '__main__':
         }
     ''')
     timer = QTimer()
-    timer.timeout.connect(reloadMap)  # execute `display_time`
+    timer.timeout.connect(reloadMap)  # execute `reloadMap`
     timer.setInterval(50)  # 1000ms = 1s
     timer.start()
     myApp = MyApp()
