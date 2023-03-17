@@ -61,7 +61,7 @@
 
             setInterval(function() {      
                 $.getJSON("map.json", function (json) {
-                    console.log(json); // this will show the info it in firebug console
+                    console.log(json);
 
                     marker.setLngLat(json.coordinate)
                         .addTo(map);
